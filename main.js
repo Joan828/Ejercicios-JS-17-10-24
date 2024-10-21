@@ -14,21 +14,15 @@ const nombreValor = nombre.value
 const correoValor = correo.value
 const mensajeValor = mensaje.value
 
-let datosUsuario = {
-  Nombre: nombreValor,
-  Correo: correoValor,
-  Mensaje: mensajeValor
-}
-
 function mostrarDatos(e){
   e.preventDefault()
+  let datosUsuario = {
+    Nombre: nombreValor,
+    Correo: correoValor,
+    Mensaje: mensajeValor
+  }
+
   console.log(datosUsuario)
-
-}
-
-const btn = document.getElementById("btn")
-btn.addEventListener("click",mostrarDatos)
-
 // Guardar en Local Storage el objeto consoleado antes (sólo guarda un usuario)
 localStorage.setItem('user', JSON.stringify(datosUsuario))
 
@@ -36,5 +30,7 @@ localStorage.setItem('user', JSON.stringify(datosUsuario))
 
 const usuario = localStorage.getItem('user')
 document.body.innerHTML = "Nombre: " + JSON.parse(usuario).Nombre +"<br>Correo: " + JSON.parse(usuario).Correo + "<br>Mensaje: " + JSON.parse(usuario).Mensaje
+}
 
-
+const btn = document.getElementById("btn")
+btn.addEventListener("click",mostrarDatos)
